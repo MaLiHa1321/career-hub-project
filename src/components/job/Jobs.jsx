@@ -1,4 +1,5 @@
 import {MdLocationOn,MdCurrencyExchange  } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Jobs = ({jobs}) => {
     const {id,company_name,logo,job_title,remote_or_onsite,location,job_type,salary} = jobs;
@@ -17,7 +18,9 @@ const Jobs = ({jobs}) => {
             <h2 className="flex mr-2"><MdCurrencyExchange></MdCurrencyExchange>{salary}</h2>
           </div>
           <div className="card-actions">
-            <button className="btn btn-primary">View Details</button>
+            <Link to={`/job/${id}`}><button className="btn btn-primary">View Details</button>
+            </Link>
+      
           </div>
         </div>
       </div>
