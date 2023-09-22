@@ -5,8 +5,12 @@ import Header from "../header/Header";
 const Root = () => {
     return (
         <div>
-         <Header></Header>
+            <div className="w-10/12 mx-auto">
+            <Header></Header>
          <Outlet></Outlet>
+
+            </div>
+
          <Footer></Footer>
             
         </div>
