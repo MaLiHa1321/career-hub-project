@@ -1,10 +1,13 @@
+
 import {MdLocationOn,MdCurrencyExchange  } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const Jobs = ({jobs}) => {
     const {id,company_name,logo,job_title,remote_or_onsite,location,job_type,salary} = jobs;
     return (
-        <div className="card  bg-base-100 border border-rose-600 p-4">
+      <>
+     
+      <div className="card  bg-base-100 border border-rose-600 p-4">
         <figure><img src={logo} alt="Shoes" /></figure>
         <div className="card-body">
           <h2 className="card-title">{job_title}</h2>
@@ -24,6 +27,8 @@ const Jobs = ({jobs}) => {
           </div>
         </div>
       </div>
+      </>
+      
     );
 };
 

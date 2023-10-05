@@ -3,6 +3,7 @@ import {MdCurrencyExchange ,MdPermPhoneMsg,MdOutlineMailOutline,MdLocationOn } f
 import {LiaBookSolid} from "react-icons/lia" 
 import toast, { Toaster } from 'react-hot-toast';
 import { saveJobApplication } from "../../utility/localStirage";
+import { Helmet } from "react-helmet-async";
 
 const JobDetails = () => {
     const jobs = useLoaderData();
@@ -21,6 +22,9 @@ const JobDetails = () => {
   
     return (
         <div>
+            <Helmet>
+                <title>Applied job</title>
+            </Helmet>
 <Toaster position="top-center" reverseOrder={false}/>
             <h1>the deatils of {job.job_title}</h1>
             <div className="grid gap-4 md:grid-cols-4">

@@ -1,12 +1,31 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink, Navigate } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Header = () => {
+
+  const {user,logOut} = useContext(AuthContext)
+
+  const handlelogOut =() =>{
+    logOut()
+    .then(res => console.log(res.user))
+    .catch(err => console.log(err))
+  }
    
     const links = <>
     <li><NavLink to="/statistics">Statistics</NavLink></li>
     <li><NavLink to="/">Home</NavLink></li>
     <li><NavLink to="/job"> Applied Jobs</NavLink></li>
     <li><NavLink to="/blog">Blog</NavLink></li>
+    <li><NavLink to="/login">Login</NavLink></li>
+    <li><NavLink to="/register">Register</NavLink></li>
+    {
+      user &&
+      <>
+       <li><NavLink to="/register">Profile</NavLink></li>
+       <li><NavLink to="/register">Dashboard</NavLink></li>
+      </>
+    }
     </>
 
 
@@ -30,8 +49,22 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Star Applying</a>
+          {
+            user ?  <div>
+           <p>{user.email}</p>
+           <img src={user.photoURL} className="rounded-full" alt="" />
+           <button onClick ={handlelogOut} className="btn">Log out</button>
+            </div>
+      
+            :
+           <button className="btn"><Link to="/login">Login</Link></button> 
+          }
         </div>
+        {/* avater */}
+       
+        
+
+
       </div>
     );
 };
